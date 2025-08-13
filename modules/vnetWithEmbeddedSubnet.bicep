@@ -19,7 +19,6 @@ resource vnet 'Microsoft.Network/virtualNetworks@2024-07-01' = {
         name: 'snet-embedded'
         properties: {
           addressPrefix: '10.0.0.0/24'
-          defaultOutboundAccess: false
         }
       }
     ]
