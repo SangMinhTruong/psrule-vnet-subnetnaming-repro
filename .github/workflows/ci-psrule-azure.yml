@@ -1,0 +1,17 @@
+name: (CI) Run PSRule for Azure
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  psrule:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run PSRule analysis
+        uses: microsoft/ps-rule@v2.9.0
+        with:
+          modules: PSRule.Rules.Azure
+          baseline: Azure.Default

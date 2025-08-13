@@ -1,0 +1,9 @@
+configuration:
+  AZURE_BICEP_FILE_EXPANSION_TIMEOUT: 30
+
+  AZURE_VNET_SUBNET_NAME_FORMAT: "^snet-"
+
+input:
+  pathIgnore:
+    - "**"
+    - "!**/*.bicepparam"
