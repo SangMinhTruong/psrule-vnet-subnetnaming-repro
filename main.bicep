@@ -2,6 +2,10 @@ module vnetEmpty 'modules/emptyVnet.bicep' = {
   name: 'vnetEmpty'
 }
 
-module vnetWithSubnet 'modules/vnetWithSubnet.bicep' = {
-  name: 'vnetWithSubnet'
+module vnetWithSeparateSubnet 'modules/vnetWithSeparateSubnet.bicep' = {
+  name: 'vnetWithSeparateSubnet'
+}
+
+module vnetWithEmbeddedSubnet 'modules/vnetWithEmbeddedSubnet.bicep' = {
+  name: 'vnetWithEmbeddedSubnet'
 }

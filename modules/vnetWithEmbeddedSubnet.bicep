@@ -3,7 +3,7 @@ targetScope = 'resourceGroup'
 param location string = resourceGroup().location
 
 resource vnet 'Microsoft.Network/virtualNetworks@2024-07-01' = {
-  name: 'vnet-with-subnet'
+  name: 'vnet-embedded-subnet'
   location: location
   tags: {
     module: 'networking'
@@ -14,14 +14,14 @@ resource vnet 'Microsoft.Network/virtualNetworks@2024-07-01' = {
         '10.0.0.0/16'
       ]
     }
-  }
-}
-
-resource subnet 'Microsoft.Network/virtualNetworks/subnets@2024-07-01' = {
-  parent: vnet
-  name: 'snet-separate'
-  properties: {
-    addressPrefix: '10.0.0.0/24'
-    defaultOutboundAccess: false
+    subnets: [
+      {
+        name: 'snet-embedded'
+        properties: {
+          addressPrefix: '10.0.0.0/24'
+          defaultOutboundAccess: false
+        }
+      }
+    ]
   }
 }
