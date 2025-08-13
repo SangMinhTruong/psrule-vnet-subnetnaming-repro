@@ -5,6 +5,9 @@ param location string = resourceGroup().location
 resource vnet 'Microsoft.Network/virtualNetworks@2024-07-01' = {
   name: 'vnet-with-subnet'
   location: location
+  tags: {
+    module: 'networking'
+  }
   properties: {
     addressSpace: {
       addressPrefixes: [
@@ -19,5 +22,6 @@ resource subnet 'Microsoft.Network/virtualNetworks/subnets@2024-07-01' = {
   name: 'snet-separate'
   properties: {
     addressPrefix: '10.0.0.0/24'
+    defaultOutboundAccess: false
   }
 }
